@@ -1,0 +1,1 @@
+Develop module to automate generating treasury yield curve either directly from treasury yields available or fitting yield curve to traded IR securities.
