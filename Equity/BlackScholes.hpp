@@ -4,7 +4,7 @@
 // File:    BlackScholes.hpp
 // Author:  Saurabh Chitnis
 // Created: 2025-08-26
-// Updated: 2025-08-26
+// Updated: 2025-09-04
 //
 // Description:
 //   Price european options using black scholes model
@@ -28,7 +28,7 @@ class BlackScholesPricer {
         EuropeanOption option;
     
     public:
-        BlackScholesPricer () = delete;       // default constructor
+        BlackScholesPricer () = default;       // default constructor
         explicit BlackScholesPricer (EuropeanOption) ;    // constructor with arg
 
         ~BlackScholesPricer () = default;      // destructor

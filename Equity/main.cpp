@@ -20,6 +20,8 @@
 # include "BlackScholes.hpp"
 # include "AmericanOption.hpp"
 # include "BinomialTreePricer.hpp"
+# include "Futures.hpp"
+# include "FuturePricer.hpp"
 
 
 int main() {
@@ -42,9 +44,18 @@ int main() {
     AmericanOption op4 (AmericanOption::AmOptionType::APut, "AAPL", 213.0, 1);   // create Am option AAPL Put 213 0.85
     //op2.OptionDescription();   // Descibe option
     BinomialTreePricer bt2 (op4, 1000);  // create binomialtree pricer
-    
 
-    // run pricers
+
+    // set up equity futures
+    // ---------------------
+    Future f1 ("MSFT", 0.8);
+    FuturePricer fp1 (f1);
+
+    Future f2 ("MSFT", 0.8, 313);
+    FuturePricer fp2 (f2);
+
+
+    // run option pricers
     // ------------
     double price ;
     price = bs1.Pricer(220, 0.01, 0.02, 0.35);      // run black scholes pricer
@@ -59,6 +70,14 @@ int main() {
     price = bt2.Pricer(220, 0.01, 0.02, 0.35);      // run binomial tree  pricer
     std::cout << "American Put Option price (BT) = " << price << "\n" << std::endl;
 
+    // run equity futures
+    // -----------------
+
+    price = fp1.Pricer(300, 0.01, 0.02);      // run futures pricer
+    std::cout << "\nFuture price w/o entryprice = " << price << "\n" << std::endl;
+
+    price = fp2.Pricer(300, 0.01, 0.02);      // run futures pricer
+    std::cout << "\nFuture price with entryprice = " << price << "\n" << std::endl;
 
     return 0;
 

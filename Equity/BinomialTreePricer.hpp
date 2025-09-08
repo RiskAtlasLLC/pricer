@@ -4,7 +4,7 @@
 // File:    BinomialTreePricer.hpp
 // Author:  Saurabh Chitnis
 // Created: 2025-08-28
-// Updated: 2025-08-30
+// Updated: 2025-09-04
 //
 // Description:
 //   Price american options using binomial tree (Declaration)
@@ -29,7 +29,7 @@ class BinomialTreePricer {
         int N;  // size of the grid
     
     public:
-        BinomialTreePricer () = delete;       // default constructor
+        BinomialTreePricer () = default;       // default constructor
         BinomialTreePricer (AmericanOption, int) ;    // constructor with arg
 
         ~BinomialTreePricer () = default;      // destructor
